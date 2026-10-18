@@ -1,0 +1,20 @@
+# Build outputs
+*.exe
+*.dll
+*.pdb
+*.obj
+BUILD_VERSION.txt
+BUILD_WIN1607_LAST.log
+# Capture outputs
+SCREEN_*.mp4
+SCREEN_*.mkv
+SCREEN_*.capture.mkv
+SCREEN_*.ffmpeg.log
+*.partial.mp4
+AUDIO_DEVICE_SCAN_LAST.log
+# Python QA cache
+__pycache__/
+*.pyc
+# Local resources not included
+tools/ffmpeg.exe
+ffmpeg.exe
