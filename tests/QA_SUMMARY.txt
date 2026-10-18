@@ -1,0 +1,43 @@
+QUALITY ASSURANCE SUMMARY - v1.0.1 - 2026-10-18
+--------------------------------------
+Confirmed against prior Techstream Capture implementation:
+  - FFmpeg gdigrab desktop input
+  - FFmpeg dshow audio input
+  - H.264 libx264 / preset veryfast / CRF 20 default
+  - AAC 128k optional audio
+  - FFmpeg execution log
+
+Prior v1.0.0 FFmpeg command tests on Linux (unchanged filter options):
+  - Original pad filter         PASS
+  - 1920x1080 aspect+pad        PASS
+  - 1280x720 aspect+pad         PASS
+  - 854x480 aspect+pad          PASS
+  - 640x360 aspect+pad          PASS
+  Each test encoded 2 frames of 1024x768 synthetic video with libx264.
+  These tests validate the filter expressions, not Windows gdigrab/dshow.
+
+v1.0.1 microphone and diagnostic changes:
+  - Audio selector editable (manual device name) - static check PASS
+  - Manual name actually enables FFmpeg dshow input - static check PASS
+  - Full device-scan stdout/stderr logging - static check PASS
+  - Native Windows legacy waveIn device count - static check PASS
+  - Synthetic FFmpeg audio-list parsers (4 cases) - PASS
+  - Windows build-version marker / old EXE rebuild behavior - static check PASS
+  - No live Windows audio enumeration or microphone record test performed
+
+Static package/source checks:
+  - Source feature checks PASS
+  - Offline C# WinForms source included
+  - Windows BAT build and runner included
+
+NOT TESTED / REMAINING FIELD VALIDATION:
+  - Windows 10 version 1607 compiling/running GUI (no Windows runtime here)
+  - gdigrab desktop capture on target PC
+  - Audio device enumeration/microphone synchronization on target PC
+  - >1 min real capture and MP4 finalization on target PC
+  - Windows 11 behavior and multi-monitor capture
+
+Please share AUDIO_DEVICE_SCAN_LAST.log if microphones do not appear.
+Share BUILD_WIN1607_LAST.log or a *.ffmpeg.log if a real-PC
+validation fails. Do not treat this development package as tested on
+Windows 1607 until the target-PC capture test has passed.
